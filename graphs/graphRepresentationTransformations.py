@@ -15,3 +15,22 @@
 #           pros: good for edge lookups since we have constant time lookup for an edge.
 #           cons: more space needed than other representations. Slow for listing all neighbours of some vertex
 #
+
+
+def edgesListToAdjacencyList(edges, type='directed'):
+    def getNumberOfNodes():
+        vertices = set()
+        for start, to in edges:
+            vertices.add(start)
+            vertices.add(to)
+        return len(vertices)
+    adjList = [[] for _ in range(getNumberOfNodes())]
+    for start, to in edges:
+        adjList[start].append(to)
+        if type == 'undirected':
+            adjList[to].append(start)
+    return adjList
+
+
+result = edgesListToAdjacencyList([(0,1), (1,2), (2,3), (1,3)], 'undirected')
+print(result)

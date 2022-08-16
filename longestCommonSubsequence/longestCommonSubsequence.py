@@ -22,11 +22,8 @@ def longestCommonSubsequence(text1, text2):
     return helper(text1, text2, 0, 0, memo)
 
 
-
-
 res = longestCommonSubsequence("", "")
 assert res == 0
-
 
 res = longestCommonSubsequence("qwe", "qwe")
 assert res == 3
