@@ -9,6 +9,7 @@ class TreeNode:
 
 
 class Solution:
+    # DFS solution
     def _recursiveHelper(self, root, targetSum, currentSum, currentList, resultLists):
         if root is None:
             return
@@ -26,10 +27,36 @@ class Solution:
                 copy2.append(root.val)
                 self._recursiveHelper(root.right, targetSum, currentSum + root.val, copy2, resultLists)
 
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+    # BFS solution
+    def _bfsHelper(self, root, targetSum):
+        if root is None:
+            return []
         result = []
-        self._recursiveHelper(root, targetSum, 0, [], result)
+        queue = []
+        queue.append((root, [root.val]))
+        while queue:
+            node, listOfNodes = queue.pop(0)
+            if not node.left and not node.right:
+                if sum(listOfNodes) == targetSum:
+                    result.append(listOfNodes)
+            else:
+                if node.left:
+                    nextListOfNodes = listOfNodes[:]
+                    nextListOfNodes.append(node.left.val)
+                    queue.append((node.left, nextListOfNodes))
+                if node.right:
+                    nextListOfNodes = listOfNodes[:]
+                    nextListOfNodes.append(node.right.val)
+                    queue.append((node.right, nextListOfNodes))
         return result
+
+    def pathSum(self, root: Optional[TreeNode], targetSum: int, type='bfs') -> List[List[int]]:
+        if type == 'dfs':
+            result = []
+            self._recursiveHelper(root, targetSum, 0, [], result)
+            return result
+        elif type == 'bfs':
+            return self._bfsHelper(root, targetSum)
 
 
 t1 = TreeNode(1)
