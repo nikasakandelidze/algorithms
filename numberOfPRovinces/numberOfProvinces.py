@@ -9,7 +9,6 @@ class DisjointSet:
         rootX = self.find(x)
         rootY = self.find(y)
         if rootX != rootY:
-            print(x, y)
             self.connectedComponents -= 1
             self.representatives[x] = rootY
             for i in range(len(self.representatives)):
