@@ -4,18 +4,24 @@ class DisjointSet:
     def __init__(self, size):
         self.representatives = [i for i in range(size)]
         self.connectedComponents = size
+        self.ranks = [1 for i in range(size)]
 
     def addConnection(self, x, y):
         rootX = self.find(x)
         rootY = self.find(y)
         if rootX != rootY:
             self.connectedComponents -= 1
-            self.representatives[x] = rootY
-            for i in range(len(self.representatives)):
-                if self.representatives[i] == rootX:
-                    self.representatives[i] = rootY
+            if self.ranks[rootX] > self.ranks[rootY]:
+                self.representatives[rootY] = rootX
+            elif self.ranks[rootX] < self.ranks[rootY]:
+                self.representatives[rootX] = rootY
+            else:
+                self.representatives[rootX] = rootY
+                self.ranks[rootY] += 1
 
     def find(self, x):
+        if self.representatives[x] == x: return x
+        self.representatives[x] = self.find(self.representatives[x])
         return self.representatives[x]
 
     def numberOfConnectedComponents(self):
@@ -23,6 +29,9 @@ class DisjointSet:
 
 
 class Solution(object):
+    def __init__(self):
+        self.representatives = []
+
     def findCircleNum(self, isConnected):
         """
         :type isConnected: List[List[int]]
