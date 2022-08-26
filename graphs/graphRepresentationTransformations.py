@@ -32,5 +32,18 @@ def edgesListToAdjacencyList(edges, type='directed'):
     return adjList
 
 
+def adjListToEdges(adjList):
+    edges = []
+    seen = set()
+    for i in range(len(adjList)):
+        for neighbour in adjList[i]:
+            if not (i, neighbour) in seen and not (neighbour, i) in seen:
+                edges.append((i, neighbour))
+                seen.add((i, neighbour))
+    return edges
+
+
 result = edgesListToAdjacencyList([(0,1), (1,2), (2,3), (1,3)], 'undirected')
 print(result)
+result2 = adjListToEdges(result)
+print(result2)

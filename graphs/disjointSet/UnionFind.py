@@ -54,8 +54,8 @@ class UnionByRankAndFindByPathCompression:
             elif self.rank[rootY] > self.rank[rootX]:
                 self.root[rootX] = rootY
             else:
-                self.rank[rootX] += 1
-                self.root[rootY] = rootX
+                self.rank[rootY] += 1
+                self.root[rootX] = rootY
 
     def find(self, x):
         if x == self.root[x]:
