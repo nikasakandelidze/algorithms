@@ -54,7 +54,7 @@ one = LinkedList(1, two)
 printLinkedList(one)
 print('Reverse range (0,4)')
 result = reverseLinkedListRange(one, 0, 4)
-print('Result',end="")
+print('Result: ',end="")
 printLinkedList(result)
 
 print()
@@ -68,5 +68,35 @@ one = LinkedList(1, two)
 printLinkedList(one)
 print('Reverse range (1,3)')
 result = reverseLinkedListRange(one, 1, 3)
-print('Result',end="")
+print('Result: ',end="")
+printLinkedList(result)
+
+print()
+
+
+five = LinkedList(5)
+four = LinkedList(4, five)
+three = LinkedList(3, four)
+two = LinkedList(2, three)
+one = LinkedList(1, two)
+
+printLinkedList(one)
+print('Reverse range (0,1)')
+result = reverseLinkedListRange(one, 0, 1)
+print('Result: ',end="")
+printLinkedList(result)
+
+
+print()
+
+five = LinkedList(5)
+four = LinkedList(4, five)
+three = LinkedList(3, four)
+two = LinkedList(2, three)
+one = LinkedList(1, two)
+
+printLinkedList(one)
+print('Reverse range (3,4)')
+result = reverseLinkedListRange(one, 3, 4)
+print('Result: ',end="")
 printLinkedList(result)
