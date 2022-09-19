@@ -11,8 +11,8 @@ class Item:
 
 # This is a greedy algorithm in a sense that it's a sequence of decisions
 # each simply making a decision based on the local optimums. and appearently it ends up as a global optimum
+# This is kind of a greedy algorithm that doesn't need a backtrack mechanism an is a direct solution
 
-#This is kind of a greedy algorithm that doesn't need a backtrack mechanism an is a direct solution
 
 def fractionalKnapSack(items, maxWeight):
     valsPerUnitOfWeight = list(map(lambda x: (x.val / x.weight, x), items))
