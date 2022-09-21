@@ -22,16 +22,37 @@ def longestCommonSubsequence(text1, text2):
     return helper(text1, text2, 0, 0, memo)
 
 
+# if we have a tabular solution for dynamic programming problem it's usually much easier to implement maximization solution than a minimization one
+# since for maximization we can easily initialize matrix to 0-s
+def dpLongestCommonSubsequence(text1, text2):
+    dp=[[0 for _ in range(len(text1)+1)] for _ in range(len(text2)+1)]
+    for i in range(1,len(dp)):
+        for j in range(1,len(dp[i])):
+            if text2[i-1]==text1[j-1]:
+                dp[i][j]=dp[i-1][j-1]+1
+            else:
+                dp[i][j]=max(dp[i-1][j], dp[i][j-1])
+    return dp[-1][-1]
+
+
 res = longestCommonSubsequence("", "")
+res2 = dpLongestCommonSubsequence("","")
 assert res == 0
+assert res2 == 0
 
 res = longestCommonSubsequence("qwe", "qwe")
+res2 = dpLongestCommonSubsequence("qwe","qwe")
 assert res == 3
+assert res2 == 3
 
 res = longestCommonSubsequence("qwe", "qe")
+res2 = dpLongestCommonSubsequence("qwe", "qe")
 assert res == 2
+assert res2 == 2
 
 res =longestCommonSubsequence("zxcqwe", "zce")
+res2 =dpLongestCommonSubsequence("zxcqwe", "zce")
 assert res == 3
+assert res2 == 3
 
 
