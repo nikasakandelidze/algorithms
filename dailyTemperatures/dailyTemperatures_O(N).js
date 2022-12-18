@@ -8,6 +8,7 @@ var dailyTemperatures = function(temperatures) {
     for(let i=temperatures.length-1; i>=0; i--){
         const currentTemp = temperatures[i]
         let nextBiggerTempIdx=0
+        // This cycle simply adds constant O(100) factor which gets disregarded
         for (let temp=currentTemp+1; temp<=100; temp++){
             const idxForNextBiggerTemp=tempIndexes[temp]
             if(idxForNextBiggerTemp!==-1){
