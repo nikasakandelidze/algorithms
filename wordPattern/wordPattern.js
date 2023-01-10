@@ -3,6 +3,8 @@
  * @param {string} s
  * @return {boolean}
  */
+
+ //https://leetcode.com/problems/word-pattern/description/
 var wordPattern = function(pattern, s) {
     const mapping = {}
     const seen = new Set()
