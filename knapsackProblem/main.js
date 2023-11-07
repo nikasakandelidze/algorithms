@@ -5,7 +5,7 @@
 
 // Solved using greedy algorithm
 // Return Maximum total value of items that can be put in the sack ( remember that items here can be fractional ).
-const fractionalKnapSack = (weights, prices, size) =>{
+const fractionalKnapSack = (weights, prices, size) => {
     const data = []
     for(let i=0; i<weights.length; i++){
         data.push({w:weights[i], p:prices[i]})
