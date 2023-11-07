@@ -11,6 +11,7 @@ const scheduleRoom = (activities) => {
         }else{
             if(current.start >= lastFinishTime){
                 result.push(current)
+                lastFinishTime = current.end
             }
         }
         idx += 1
