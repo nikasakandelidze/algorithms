@@ -16,6 +16,9 @@
         just seem to be symmetrical activities but they aren't. If you start from the start, there is no available space lower then start(0). Thus you are already
         potentially introducing collisions and reducing the chance of getting anywhere. But if you start from the end, there is always possibility that some new profit
         with higher deadline comes in and you won't have to adjust anything, since higher deadlines are automatically available.
+
+        A simple example that will prove that starting from the smallest deadlines first won't work is any sequence of jobs that have descending order of profits
+        and first Half of jobs have Huge deadlines, and second half of jobs have deadlines from  1-N/2. The second half of jobs won't even be able to get scheduled if we start scheduling from zero.
 */
 const jobSequencing = (jobs) => {
     jobs.sort((a,b)=>b.profit - a.profit)
@@ -41,5 +44,4 @@ let jobs = [{id: 'k', deadline: 1, profit: 200},
 
 //[200,100,27,26,]
 
-[100,27,15,25,26]
 console.log(jobSequencing(jobs))

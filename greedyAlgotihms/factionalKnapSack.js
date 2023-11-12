@@ -1,3 +1,3 @@
 const fractionalKnapsack = () => {
-
+    'use strict'
 }

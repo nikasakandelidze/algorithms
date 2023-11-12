@@ -1,3 +1,4 @@
+
 const scheduleRoom = (activities) => {
     let result = []
     activities.sort((a,b)=>a.end-b.end)
@@ -16,4 +17,8 @@ const scheduleRoom = (activities) => {
         }
         idx += 1
     }
+}
+
+const scheduleRoomWithMultipleRooms = () => {
+    
 }
