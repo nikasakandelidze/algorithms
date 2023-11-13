@@ -1,3 +1,6 @@
-const activitySelection = () => {
+/*
+    
+*/
+const activitySelection = (activities) => {
        
 }
