@@ -24,3 +24,31 @@ var longestCommonSubsequence = function(text1, text2) {
     }
     return dp[text1.length][text2.length]
 };
+
+/*
+    abcde
+    ace
+*/
+var longestCommonSubsequenceTopDown = function(text1, text2) {
+    const cache = {}
+    const helper = (i,j) => {
+        if(i >= text1.length || j >= text2.length){ 
+            return 0
+        }
+        if(cache[`${i}i_${j}j`]){
+            return cache[`${i}i_${j}j`]
+        }
+        const ch1 = text1[i]
+        const ch2 = text2[j]
+        if(ch1===ch2){
+            const res = 1 + helper(i+1,j+1)
+            cache[`${i}i_${j}j`] = res
+            return res
+        }else{
+            const res = Math.max(helper(i+1,j), helper(i+1,j+1), helper(i,j+1))
+            cache[`${i}i_${j}j`] = res
+            return res
+        }
+    }
+    return helper(0,0)
+}
