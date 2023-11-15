@@ -15,3 +15,7 @@ Dynamic programming is the algorithmic solution category that is concerned with 
 # One pattern of Tabular Dynamic Programming models
 
 When you have some inputs ( capacity, strings, weight, etc) for tabular solution od DP you can generate all possible cases from simplest problem to existing(input) one. And gradually start solving from the simplest to the hardest problem. You'll need to base your harder problems on the solutions from the simpler ones using a recurrence relation.
+
+# Another pattern of DP problems
+
+If the brute force solution to the problem is 2^n (subset, subsequence generation) then most probably the problem can boil down to dp n^2 solution
