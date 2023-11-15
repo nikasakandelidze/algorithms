@@ -19,3 +19,10 @@ When you have some inputs ( capacity, strings, weight, etc) for tabular solution
 # Another pattern of DP problems
 
 If the brute force solution to the problem is 2^n (subset, subsequence generation) then most probably the problem can boil down to dp n^2 solution
+
+- Identify optimization problem (max, min)
+- Identify the State (Set of parameters that can identify a specific sub problem, in Longest Increasing subsequence problem it's: index)
+  - Identifying state clearly is important as it will help you to identify base cases and recurrence relation ( smaller state is smaller subproblem )
+- Identify the form of dp Array
+- Identify the base case
+- Identify Recurrence relation
